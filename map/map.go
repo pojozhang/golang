@@ -22,4 +22,9 @@ func main() {
 	for key, value := range args {
 		fmt.Println(key + ":" + strconv.Itoa(value))
 	}
+
+	if _, ok := args["key5"]; !ok {
+		fmt.Println("key5 not exists")
+	}
+
 }
