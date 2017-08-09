@@ -37,6 +37,10 @@ func main() {
 	employeePtr.Address = "ccc" //equals to (*employeePtr).Address="ccc"
 	fmt.Println(employee)
 
+	employeePtr = new(Employee) //return a ptr
+	employeePtr.Address = "ddd"
+	fmt.Println(*employeePtr)
+
 	color := Color{255, 255, 255}
 	fmt.Println(color)
 	color = Color{Red: 250, Green: 250}

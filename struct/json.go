@@ -26,6 +26,7 @@ func main() {
 	}
 
 	var bks []Book
+	fmt.Println(bks)
 	data, _ := json.Marshal(books)
 	json.Unmarshal(data, &bks)
 	fmt.Println(bks)
