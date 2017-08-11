@@ -33,10 +33,15 @@ type Circle struct {
 }
 
 type Rocket struct {
+	second int
 }
 
 func (r *Rocket) Launch() {
 	fmt.Println("launch")
+}
+
+func (r *Rocket) SetSecond(second int) {
+	r.second = second
 }
 
 func main() {
@@ -79,4 +84,8 @@ func main() {
 	time.AfterFunc(1*time.Second, rocket.Launch)
 	//equals to below
 	time.AfterFunc(1*time.Second, func() { rocket.Launch() })
+
+	rocket2 := Rocket{}
+	rocket2.SetSecond(3)
+	fmt.Println(rocket2.second)
 }
