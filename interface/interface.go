@@ -23,4 +23,5 @@ func main() {
 	writer = new(MailWriter)
 	fmt.Println(writer)
 	writer.Write("hello")
+	fmt.Printf("%T\n", writer)//打印接口值的动态类型
 }
