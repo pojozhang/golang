@@ -37,6 +37,10 @@ type Rocket struct {
 }
 
 func (r *Rocket) Launch() {
+	//方法接收者可以是nil
+	if r == nil {
+		fmt.Printf("fail to launch")
+	}
 	fmt.Println("launch")
 }
 
@@ -88,4 +92,7 @@ func main() {
 	rocket2 := Rocket{}
 	rocket2.SetSecond(3)
 	fmt.Println(rocket2.second)
+
+	var emptyRocket *Rocket
+	emptyRocket.Launch()//emptyRocket指向nil，但仍可以调用，因为方法接收者可以是nil
 }
