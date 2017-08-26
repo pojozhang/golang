@@ -1,10 +1,7 @@
 package main
 
 import (
-	"bytes"
 	"fmt"
-	"io"
-	"os"
 )
 
 type Writer interface {
@@ -49,10 +46,13 @@ func main() {
 
 	//类型断言，注意，此处判断的是实现了某个接口的某个具体类型，I.(T) 类型T必须实现了接口I，否则编译报错
 	var w3 Writer = &MailWriter{}
-	if f, ok := w3.(*PaperWriter); !ok {//ok为false，因为w3是*MailWriter类型
+	if f, ok := w3.(*PaperWriter); !ok { //ok为false，因为w3是*MailWriter类型
 		fmt.Println(f)
 		fmt.Println("not match")
 	}
+
+	formatValue(2)
+	formatValue("2")
 }
 
 func doWrite(w Writer, s string) {
@@ -61,4 +61,14 @@ func doWrite(w Writer, s string) {
 
 func write(s string) {
 	fmt.Println(s)
+}
+
+//类型分支
+func formatValue(x interface{}) {
+	if f, ok := x.(int); ok {
+		fmt.Println("is int")
+	}
+	if _, ok := x.(string); ok {
+		fmt.Println("is string")
+	}
 }
