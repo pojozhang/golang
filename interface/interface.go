@@ -74,8 +74,9 @@ func formatValue(x interface{}) {
 	}
 
 	//写法2，type是关键字，且类型分支不支持fallthrough
-	switch x.(type) {
+	switch x := x.(type) {
 	case int:
+		fmt.Println(x)//x是switch语句里创建的局部变量x，而不是外部变量
 		fmt.Println("is int")
 	case string:
 		fmt.Println("is string")
