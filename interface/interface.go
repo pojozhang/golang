@@ -65,10 +65,21 @@ func write(s string) {
 
 //类型分支
 func formatValue(x interface{}) {
-	if f, ok := x.(int); ok {
+	//写法1
+	if _, ok := x.(int); ok {
 		fmt.Println("is int")
 	}
 	if _, ok := x.(string); ok {
 		fmt.Println("is string")
+	}
+
+	//写法2，type是关键字
+	switch x.(type) {
+	case int:
+		fmt.Println("is int")
+	case string:
+		fmt.Println("is string")
+	default:
+		fmt.Println("is unknown")
 	}
 }
