@@ -21,6 +21,14 @@ func main() {
 	red += COLOR(red2)
 	fmt.Println(red)
 	fmt.Println(test.AKA)
+
+	//switch语句，默认是break，需要显式声明fallthrough直接执行下一个case的语句，且最后一个case不能加fallthrough，否则编译错误
+	d := 1
+	switch d {
+	case 2:
+		fallthrough
+	case 3:
+	}
 }
 
 func printColor(color COLOR) {
@@ -78,8 +86,8 @@ const (
 func init() {
 	symbol := []string{USD: "$", EUR: "aa"}
 	fmt.Println(symbol)
-	r := [...]int{15: 1}//定义一个长度为16的数组，且最后一个元素是1，其余元素是0
-	r1:=r[2:4]
+	r := [...]int{15: 1} //定义一个长度为16的数组，且最后一个元素是1，其余元素是0
+	r1 := r[2:4]
 	fmt.Println(r1)
 	fmt.Println(cap(r1))
 	fmt.Println(r1[2:])

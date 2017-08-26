@@ -73,7 +73,7 @@ func formatValue(x interface{}) {
 		fmt.Println("is string")
 	}
 
-	//写法2，type是关键字
+	//写法2，type是关键字，且类型分支不支持fallthrough
 	switch x.(type) {
 	case int:
 		fmt.Println("is int")
