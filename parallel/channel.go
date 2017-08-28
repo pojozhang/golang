@@ -60,7 +60,7 @@ func main() {
 
 	for n := range ch5 {
 		fmt.Printf("get %d\n", n)
-		time.Sleep(1 * time.Second)
+		time.Sleep(300 * time.Millisecond)
 	}
 
 	//缓冲通道等同于异步消费，如果队列满了，发送方会阻塞，如果队列为空，消费方会阻塞
@@ -75,8 +75,17 @@ func main() {
 
 	for n := range ch6 {
 		fmt.Printf("get %d\n", n)
-		time.Sleep(1 * time.Second)
+		time.Sleep(300 * time.Millisecond)
 	}
+
+	ch7 := make(chan struct{})
+	go func() {
+		time.Sleep(4 * time.Second)
+		close(ch7)
+	}()
+	fmt.Println("wait")
+	<-ch7//close后收到struct{}类型的零值，ok=false
+	fmt.Println("done")
 }
 
 //只能发射的通道
