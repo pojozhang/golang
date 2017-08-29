@@ -1,3 +1,5 @@
+// +build darwin
+
 package main
 
 import (
@@ -20,7 +22,7 @@ func main() {
 
 	red += COLOR(red2)
 	fmt.Println(red)
-	fmt.Println(test.AKA)
+	fmt.Println(testp.AKA)
 
 	//switch语句，默认是break，需要显式声明fallthrough直接执行下一个case的语句，且最后一个case不能加fallthrough，否则编译错误
 	d := 1
