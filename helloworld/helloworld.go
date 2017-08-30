@@ -4,6 +4,7 @@ package main
 
 import (
 	"./test"
+	"testp"
 	"bytes"
 	"fmt"
 	"log"
@@ -14,6 +15,10 @@ import (
 type COLOR string
 type COLOR2 string
 
+func (s string) ss(){
+	fmt.Println(s)
+}
+
 func main() {
 	fmt.Println("hello world")
 	printColor(COLOR("sss"))
@@ -23,6 +28,8 @@ func main() {
 	red += COLOR(red2)
 	fmt.Println(red)
 	fmt.Println(testp.AKA)
+	fmt.Println(testp.AKA2)
+	fmt.Println(testp.AKA3)
 
 	//switch语句，默认是break，需要显式声明fallthrough直接执行下一个case的语句，且最后一个case不能加fallthrough，否则编译错误
 	d := 1
